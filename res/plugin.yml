@@ -1,4 +1,7 @@
-main: me.mattiamari.youredangerous.YoureDangerous
 name: YoureDangerous
 version: 1.0.0
+author: hello@mattiamari.me
+website: https://github.com/mattiamari/youredangerous
 api-version: 1.15
+description: Log players that love to live dangerously
+main: me.mattiamari.youredangerous.YoureDangerous

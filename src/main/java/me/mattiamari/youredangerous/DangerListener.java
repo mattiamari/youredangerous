@@ -3,7 +3,6 @@ package me.mattiamari.youredangerous;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.block.BlockState;
 import org.bukkit.entity.Creeper;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
@@ -24,6 +23,10 @@ public class DangerListener implements Listener {
         this.plugin = plugin;
     }
 
+    /**
+     * Log creeper explosions and the player it was targeting
+     * @param event
+     */
     @EventHandler
     public void onCreeperExplode(EntityExplodeEvent event) {
         Entity entity = event.getEntity();
@@ -44,6 +47,10 @@ public class DangerListener implements Listener {
             loc.getBlockX(), loc.getBlockY(), loc.getBlockZ()));
     }
 
+    /**
+     * Log when "flint and steel" is used to trigger creeper explosion
+     * @param event
+     */
     @EventHandler
     public void onCreeperIgnite(PlayerInteractEntityEvent event) {
         ItemStack itemInHand = event.getPlayer().getInventory().getItemInMainHand();
@@ -67,6 +74,10 @@ public class DangerListener implements Listener {
         ));
     }
 
+    /**
+     * Log when "flint and steel" is used to trigger TNT
+     * @param event
+     */
     @EventHandler
     public void onTntIgnite(PlayerInteractEvent event) {
         ItemStack itemInHand = event.getPlayer().getInventory().getItemInMainHand();
@@ -93,6 +104,10 @@ public class DangerListener implements Listener {
         ));
     }
 
+    /**
+     * Log when dangerous blocks (e.g. lava and TNT) are placed
+     * @param event
+     */
     @EventHandler
     public void onDangerousBlockPlace(BlockPlaceEvent event) {
         Block block = event.getBlock();
@@ -108,6 +123,10 @@ public class DangerListener implements Listener {
         }
     }
 
+    /**
+     * Log when a lava bucket gets emptied
+     * @param event
+     */
     @EventHandler
     public void onLavaBucketEmpty(PlayerBucketEmptyEvent event) {
         Block block = event.getBlock();
@@ -119,7 +138,11 @@ public class DangerListener implements Listener {
                 block.getX(), block.getY(), block.getZ()));
         }
     }
-
+    
+    /**
+     * Log when "flint and steel" is used to start a fire
+     * @param event
+     */
     @EventHandler
     public void onBlockIgnite(BlockIgniteEvent event) {
         Block block = event.getBlock();
